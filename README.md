@@ -1,2 +1,2 @@
 # Kotlin.net
-Kotlin to .net cli compiler
+Kotlin to .net clr compiler
