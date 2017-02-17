@@ -6,6 +6,7 @@ class TransactableStream<out T>(items : Iterable<T>) {
     private var index = 0;
     private val snapshotIndexes = Stack<Int>()
     private val items: MutableList<T> = mutableListOf()
+    val length = items.count() - index
 
     init {
         this.items.addAll(items.toList())

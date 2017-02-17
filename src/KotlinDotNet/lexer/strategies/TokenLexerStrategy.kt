@@ -11,5 +11,5 @@ abstract class TokenLexerStrategy {
         return isMatch
     }
 
-    abstract fun parseToken(transactableStream : TransactableStream<Char>) : Token?
+    abstract fun parseToken(transactableStream : TransactableStream<Char>) : Iterable<Token>?
 }

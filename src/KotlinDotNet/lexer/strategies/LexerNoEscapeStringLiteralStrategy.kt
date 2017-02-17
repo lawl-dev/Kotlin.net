@@ -4,7 +4,7 @@ import KotlinDotNet.lexer.Token
 import KotlinDotNet.lexer.TransactableStream
 
 class LexerNoEscapeStringLiteralStrategy : TokenLexerStrategy() {
-    override fun parseToken(transactableStream: TransactableStream<Char>): Token? {
+    override fun parseToken(transactableStream: TransactableStream<Char>): Iterable<Token>? {
         if(transactableStream.current != '"' || transactableStream.peek(1) != '"' || transactableStream.peek(2) != '"'){
             return null
         }
@@ -20,6 +20,6 @@ class LexerNoEscapeStringLiteralStrategy : TokenLexerStrategy() {
         transactableStream.consume()
         transactableStream.consume()
         result += "\"\"\""
-        return Token.NoEscapeStringLiteral(result)
+        return listOf(Token.NoEscapeStringLiteral(result))
     }
 }

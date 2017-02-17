@@ -4,7 +4,7 @@ import KotlinDotNet.lexer.Token
 import KotlinDotNet.lexer.TransactableStream
 
 class LexerMultiLineCommentStrategy : TokenLexerStrategy() {
-    override fun parseToken(transactableStream: TransactableStream<Char>): Token? {
+    override fun parseToken(transactableStream: TransactableStream<Char>): Iterable<Token>? {
         if(transactableStream.current != '/' || transactableStream.peek(1) != '*')
         {
             return null
@@ -17,6 +17,6 @@ class LexerMultiLineCommentStrategy : TokenLexerStrategy() {
             transactableStream.consume()
             result += transactableStream.current
         }
-        return Token.MultiLineComment(result)
+        return listOf(Token.MultiLineComment(result))
     }
 }
