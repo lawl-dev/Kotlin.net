@@ -1,3 +1,3 @@
 package KotlinDotNet.lexer
 
-class KtLexerException(message: String) : Throwable(message)
+class LexerException(message: String) : Throwable(message)

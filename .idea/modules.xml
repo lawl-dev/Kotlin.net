@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Kotlin.net.iml" filepath="$PROJECT_DIR$/Kotlin.net.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KotlinDotNet.tests/KotlinDotNet.tests.iml" filepath="$PROJECT_DIR$/KotlinDotNet.tests/KotlinDotNet.tests.iml" />
     </modules>
   </component>
 </project>

@@ -3,7 +3,7 @@ package KotlinDotNet.lexer
 import java.util.*
 
 class TransactableStream<out T>(items : Iterable<T>) {
-    private var index = 0;
+    private var index = 0
     private val snapshotIndexes = Stack<Int>()
     private val items: MutableList<T> = mutableListOf()
     val length = items.count() - index
@@ -30,6 +30,13 @@ class TransactableStream<out T>(items : Iterable<T>) {
 
     fun commitSnapshot() {
         snapshotIndexes.pop()
+    }
+
+    fun pushBack(count: Int){
+        if(index - count < 0){
+            throw IndexOutOfBoundsException()
+        }
+        index = index - count
     }
 
     private fun overflows(offset: Int) = items.count() <= index + offset

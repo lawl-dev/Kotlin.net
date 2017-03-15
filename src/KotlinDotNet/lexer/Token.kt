@@ -13,7 +13,13 @@ sealed class Token(val value : String){
     class ErrorToken(value: String, val corruptedToken : Token?, val lexerError : LexerError) : Token(value)
     class EscapeSequence(value: String) : Token(value)
     class UnicodeEscapeSequence(value: String) : Token(value)
+    class OpenQuote(value: String) : Token(value)
+    class ClosingQuote(value: String) : Token(value)
+    class DanglingNewLine(value: String) : Token(value)
+    class ShortTemplateEntryStart(value: String) : Token(value)
 }
+
+class TokenPart(val value : String)
 
 enum class LexerError {
     IllegalEscapeSequence,
